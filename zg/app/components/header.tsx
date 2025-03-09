@@ -23,7 +23,7 @@ export default function Header() {
         <div>
           <img
             src="/img/logo.svg"
-            alt="Glamour Logo"
+            alt="Logo"
             className="h-12 md:h-15 w-auto cursor-pointer"
             onClick={() => scrollToSection("home")}
           />

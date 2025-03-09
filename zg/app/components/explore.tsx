@@ -7,26 +7,33 @@ import TabButton from "./TabButton";
 
 const images = {
   Lips: [
-    "/img/lips-1.png",
-    "/img/lips-2.png",
-    "/img/lips-3.png",
-    "/img/lips-4.jpg",
-    "/img/lips-5.jpg",
+    "/img/lips-1.jpg",
+    "/img/lips-2.jpg",
+    "/img/lips-3.jpg",
   ],
   Lashes: [
-    "/img/lashes-1.png",
-    "/img/lashes-2.png",
-    "/img/lashes-3.png",
-    "/img/lashes-3.png",
-    "/img/lashes-2.png",
+    "/img/lashes-2weeks.jpg",
+    "/img/lashes-3weeks-foreign.jpg",
+    "/img/lashes-3weeks.jpg",
+    "/img/lashes-classic.jpg",
+    "/img/lashes-hybrid.jpg",
+    "/img/lashes-kylie.jpg",
+    "/img/lashes-mascara.jpg",
+    "/img/lashes-removal.jpg",
+    "/img/lashes-volume.jpg",
   ],
   Brows: [
     "/img/brows-1.jpg",
     "/img/brows-2.jpg",
     "/img/brows-3.jpg",
-    "/img/brows-1.jpg",
-    "/img/brows-1.jpg",
-    "/img/brows-2.jpg",
+  ],
+  Eyeliner: [
+    "/img/eyeliner.jpg",
+    "/img/eyeliner-1.jpg",
+    "/img/eyeliner-2.jpg",
+    "/img/eyeliner-3.jpg",
+    "/img/eyeliner-4.jpg",
+    "/img/eyeliner-5.jpg",
   ],
 };
 
