@@ -1,6 +1,6 @@
 import About from "@/components/ui/about";
 import Contact from "@/components/ui/contact";
-import Explore from "@/components/ui/explore";
+import Explore from "@/components/ui/explore.tsx";
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import Services from "@/components/ui/services";
