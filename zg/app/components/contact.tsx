@@ -1,83 +1,139 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, Phone, Mail } from "lucide-react";
+import ContactForm from "./ContactForm";
+import { Playfair_Display } from "next/font/google";
+
+// Подключение шрифта Playfair Display
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export default function Contact() {
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSuccess = () => {
+    setIsSuccess(true);
+
+    // Убираем попап через 3 секунды
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 3000);
+  };
+
   return (
-    <motion.section 
-      id="contact" 
+    <motion.section
+      id="contact"
       className="py-10 md:py-16"
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false }}
     >
-      <div className="container mx-auto px-0 md:px-6 max-w-6xl flex flex-col md:flex-row items-center gap-8">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         
-        {/* Карта */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false }}
-          className="w-full md:w-1/2"
+          className="mb-12 text-center md:text-center"
         >
-          <iframe
-            className="w-full h-[300px] md:h-[400px] rounded-2xl"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93233.91709424307!2d-93.3294912!3d44.977753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b333e9e3081601%3A0xe9b42d5b01725c02!2sMinneapolis%2C%20MN!5e0!3m2!1sen!2sus!4v1675805084537!5m2!1sen!2sus"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </motion.div>
-
-        {/* Форма */}
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          viewport={{ once: false }}
-          className="w-full md:w-1/2 p-0 md:p-8 rounded-2xl"
-        >
-          <h2 className="font-playfair py-10 md:py-0 text-4xl text-center md:text-left text-black mb-10">
-          Get In Touch
+          <h2 className={`${playfair.className} text-xl md:text-5xl lg:text-5xl  text-black`}>
+            Contact Us
           </h2>
-
-          <form className="space-y-4 py-0">
-            <div>
-              <label className="font-lora block text-[20px] font-medium">Name</label>
-              <input
-                type="text"
-                className="bg-transparent mt-1 block w-full border-b border-black outline-none focus:border-b-2 focus:border-b-gray-800 transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="font-lora block text-[20px] font-medium">Email</label>
-              <input
-                type="email"
-                className="bg-transparent mt-1 block w-full border-b border-black outline-none focus:border-b-2 focus:border-b-gray-800 transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="font-lora block font-medium text-[20px]">Phone</label>
-              <input
-                type="tel"
-                className="bg-transparent mt-1 mb-10 block w-full border-b border-black outline-none focus:border-b-2 focus:border-b-gray-800 transition duration-300"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="font-lora text-[20px] mt-10 w-full bg-[#a43f00] text-white font-medium py-2 rounded-full shadow-md hover:bg-[#812f00] transition duration-300"
-            >
-              Submit
-            </button>
-          </form>
+          <p className="text-gray-600 mt-2 text-lg md:text-xl">
+            We&apos;re here to help! Reach out to us anytime.
+          </p>
         </motion.div>
 
+        {/* Контейнер с контактами и формой */}
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          
+          {/* Блок с картой и контактами */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: false }}
+            className="w-full md:w-1/2 space-y-6"
+          >
+            {/* Карта */}
+            <div className="rounded-2xl shadow-lg overflow-hidden">
+              <iframe
+                className="w-full h-[300px] md:h-[400px]"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93233.91709424307!2d-93.3294912!3d44.977753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b333e9e3081601%3A0xe9b42d5b01725c02!2sMinneapolis%2C%20MN!5e0!3m2!1sen!2sus!4v1675805084537!5m2!1sen!2sus"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            {/* Контактная информация */}
+            <div className="bg-[#F3DDDA] p-6 rounded-2xl shadow-md">
+              <h3 className="text-2xl font-semibold text-black mb-4">Contact Information</h3>
+              
+              <div className="space-y-4">
+                {/* Адрес */}
+                <div className="flex items-center gap-3">
+                  <MapPin className="text-black-600 w-6 h-6" />
+                  <p className="text-gray-700">
+                    <strong>Address:</strong> 123 Main Street, Minneapolis, MN
+                  </p>
+                </div>
+
+                {/* Телефон */}
+                <div className="flex items-center gap-3">
+                  <Phone className="text-black-600 w-6 h-6" />
+                  <p className="text-gray-700">
+                    <strong>Phone:</strong> 
+                    <a href="tel:+1234567890" className="text-blue-600 hover:underline ml-1">+1 (234) 567-890</a>
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center gap-3">
+                  <Mail className="text-black-600 w-6 h-6" />
+                  <p className="text-gray-700">
+                    <strong>Email:</strong> 
+                    <a href="mailto:info@example.com" className="text-blue-600 hover:underline ml-1">info@example.com</a>
+                  </p>
+                </div>
+
+                {/* Часы работы */}
+                <div>
+                  <p className="text-gray-700"><strong>Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM</p>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Форма обратной связи */}
+          <ContactForm onSuccess={handleSuccess} />
+        </div>
       </div>
+
+      {/* Попап успешной отправки */}
+      <AnimatePresence>
+        {isSuccess && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 flex items-center justify-center z-50"
+          >
+            <div className="bg-green-600 text-white px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
+              ✅ Your message has been sent!
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </motion.section>
   );
 }

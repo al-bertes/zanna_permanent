@@ -1,6 +1,7 @@
 import About from "./components/about";
 import Contact from "./components/contact";
 import Explore from "./components/explore";
+import FAQ from "./components/FAQ";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Services from "./components/services";
@@ -17,6 +18,7 @@ export default function Home() {
         <Explore />
         <WhyUs />
         <Services />
+        <FAQ/>
         <Contact />
         <Footer />
       </div>

@@ -1,44 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {  Instagram } from "lucide-react";
+import Image from "next/image";
+
+const navigationLinks = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Explore", id: "explore" },
+  { name: "Services", id: "services" },
+  { name: "Contact", id: "contact" },
+  { name: "FAQ", id: "faq" },
+];
 
 export default function Footer() {
   return (
     <motion.footer
-      className="py-10 md:py-16"
+      className="md:py-5 "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false }}
     >
-      <div className="container mx-auto px-0 md:px-6 max-w-6xl">
-       
-        <motion.hr 
-          className="border-black mb-20"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false }}
-        />
-
-        <motion.div 
-          className="flex flex-col px-0 md:px-6 md:flex-row items-start justify-between gap-6"
+      <motion.hr
+        className="border-black my-6"
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: false }}
+      />
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        {/* Верхняя часть футера */}
+        <motion.div
+          className="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: false }}
         >
-          <h2 className="font-playfair text-2xl text-black">Contact Us</h2>
+          {/* Логотип и слоган */}
+          <div className="flex flex-col items-center md:items-start">
+  <Image
+    src="/img/logo.svg"
+    alt="Logo"
+    width={160}
+    height={60}
+    className="h-10 w-auto mb-2"
+    priority
+  />
+  <p className="text-gray-600 text-sm">
+    Enhancing Your Beauty, One Stroke at a Time.
+  </p>
+</div>
 
-          <div className="w-full md:w-1/2 space-y-4">
-            <p className="font-lora border-b border-black pb-1">+1-800-555-0199</p>
-            <p className="font-lora border-b border-black pb-1">info@beautyglam.com</p>
-            <p className="font-lora border-b border-black pb-1">Minneapolis, United States</p>
+          {/* Быстрые ссылки */}
+          <nav className="flex justify-center md:justify-start gap-4 text-gray-700">
+            {navigationLinks.map(({ name, id }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="hover:text-black transition transform hover:scale-105 duration-300"
+              >
+                {name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Социальные сети */}
+          <div className="flex gap-4">
+            <a
+              href="https://www.instagram.com/beauty_zone_zg/"
+              target="_blank"
+              className="text-gray-700 hover:text-pink-500 transition"
+              aria-label="Instagram"
+            >
+              <Instagram size={24} />
+            </a>
           </div>
         </motion.div>
 
+        {/* Линия-разделитель */}
+
+        {/* Копирайт */}
         <motion.p
-          className="font-lora text-center text-sm text-black mt-20"
+          className="text-center text-sm text-gray-600 pt-9"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}

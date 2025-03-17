@@ -1,9 +1,20 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ImageSlider from "./ImageSlider";
-import TabButton from "./TabButton";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Playfair_Display } from "next/font/google";
+
+// Подключение шрифта Playfair Display
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 const images = {
   Lips: [
@@ -42,18 +53,9 @@ const tabs = Object.keys(images) as (keyof typeof images)[];
 export default function ExploreSection() {
   const [activeTab, setActiveTab] = useState<keyof typeof images>("Lips");
 
-  // Циклический переход между категориями
-  const switchToNextCategory = useCallback(() => {
-    const currentIndex = tabs.indexOf(activeTab);
-    const nextIndex = (currentIndex + 1) % tabs.length; // Циклический переход
-    setActiveTab(tabs[nextIndex]);
-  }, [activeTab]);
-
-  // Автопереход между категориями каждые 10 секунд
-  useEffect(() => {
-    const interval = setInterval(switchToNextCategory, 10000); // 10 секунд
-    return () => clearInterval(interval);
-  }, [switchToNextCategory]);
+  const handleTabChange = (tab: keyof typeof images) => {
+    setActiveTab(tab);
+  };
 
   return (
     <motion.section
@@ -72,26 +74,15 @@ export default function ExploreSection() {
           viewport={{ once: false }}
           className="flex flex-col md:flex-row items-center md:items-baseline gap-6 md:gap-20"
         >
-          <h2 className="font-playfair text-4xl md:text-5xl text-black mt-2 mb-4 leading-tight">
+          <h2 className={`${playfair.className} font-playfair text-4xl md:text-5xl text-black mt-2 mb-4 leading-tight`}>
             Explore
           </h2>
-
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-lg text-gray-400">
-            {tabs.map((tab) => (
-              <TabButton
-                key={tab}
-                label={tab}
-                isActive={activeTab === tab}
-                onClick={() => setActiveTab(tab)}
-              />
-            ))}
-          </div>
         </motion.div>
 
         <AnimatePresence mode="wait">
           <motion.h3
-            key={activeTab} // Для анимации при смене вкладки
-            className="font-lora text-2xl text-black mt-6 mb-4 text-center md:text-left"
+            key={activeTab}
+            className="font-lora text-center text-2xl text-black mt-6 mb-4 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -103,18 +94,58 @@ export default function ExploreSection() {
 
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeTab} // Для плавного появления ImageSlider
+            key={activeTab}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <ImageSlider 
-              images={images[activeTab]} 
-              onLastSlide={switchToNextCategory} 
-            />
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={1}
+              breakpoints={{
+                480: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="w-full"
+            >
+              {images[activeTab].map((imgSrc, index) => (
+                <SwiperSlide key={index}>
+                  <Image
+                    src={imgSrc}
+                    alt={`${activeTab} ${index + 1}`}
+                    width={600}
+                    height={400}
+                    className="w-full h-80 md:h-64 object-cover rounded-2xl shadow-lg"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </motion.div>
         </AnimatePresence>
+
+        <div className="flex justify-center gap-4 mt-6">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => handleTabChange(tab)}
+                className={`px-3 py-1 md:px-5 md:py-2 rounded-full text-sm md:text-base font-medium transition-colors duration-200 ${activeTab === tab
+                    ? "bg-red-500 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+        </div>
       </div>
     </motion.section>
   );
