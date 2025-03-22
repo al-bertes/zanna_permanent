@@ -6,13 +6,19 @@ import { Button } from "./button";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Modal from "./Modal";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 
 // Подключение шрифта Playfair Display
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 
 const permanentBrows = [
   {
@@ -34,15 +40,8 @@ const permanentBrows = [
     description: "Perfect for an initial touch-up to ensure optimal shape and lasting color.",
     duration: "2 hours",
     price: "$400",
-    image: "/img/brows-2.jpg"
+    image: "/img/brows-3.jpg"
   },
-  {
-    title: "Permanent Eyeliner",
-    description: "Define and enhance your eyes with subtle, long-lasting eyeliner. Perfect for those seeking effortless daily beauty.",
-    duration: "2 hours",
-    price: "$170",
-    image: "/img/eyeliner.jpg"
-  }
 ];
 
 const permanentLips = [
@@ -58,7 +57,7 @@ const permanentLips = [
     description: "Maintain your lip color vibrancy and shape with a professional touch-up.",
     duration: "2 hours 30 minutes",
     price: "$200",
-    image: "/img/lips-3.jpg"
+    image: "/img/lips-2.jpg"
   }
 ];
 
@@ -122,6 +121,17 @@ const lashesData = [
   },
 ];
 
+const permanentLashLine = [
+  {
+    title: "Lash-Line Enhancement",
+    description: "Subtly define your eyes with precise pigment along the lash line for a fuller, natural look—no daily eyeliner needed. Long-lasting, smudge-proof, and perfect for a fresh, youthful appearance.Duration: 1 hour 40 minutes • Lasts: 2–3 years • Ideal for: Natural enhancement, time-saving makeup routine",
+    duration: "1 hour 40 minutes",
+    price: "$300",
+    image: "/img/eyeliner-2.jpg" 
+  }
+];
+
+
 
 export default function CustomTabs() {
   // Данные для Permanent Brows
@@ -154,31 +164,43 @@ export default function CustomTabs() {
         >
           {/* Вкладки (Tabs) */}
           <Tabs defaultValue="permanent">
-            <div className="relative  bg-red-100 rounded-t-2xl flex p-0">
+            <div className="relative rounded-t-2xl flex p-0">
               {/* Добавлен sticky для фиксирования вкладок при скролле */}
-              <TabsList className="relative w-full flex bg-white p-1 top-0 shadow-md rounded-t-2xl">
-  <motion.div
+              <TabsList className="relative w-full flex p-0">
+  {/* <motion.div
     layout
     transition={{ duration: 0.4, ease: "easeOut" }}
     className="absolute top-0 left-0 w-full h-full bg-[#FBEDED] rounded-t-2xl"
-  />
+  /> */}
   
   <TabsTrigger
     value="permanent"
-    className="text-xl md:text-2xl relative z-10 flex-1 rounded-t-xl py-4 font-semibold  transition-all duration-300
-      data-[state=active]:bg-[#F3DDDA] data-[state=active]:shadow-lg 
-      data-[state=active]:translate-y-[-4px] data-[state=active]:text-black
-      data-[state=inactive]:bg-[#FBEDED] data-[state=inactive]:text-gray-600"
+    className={`${lora.className} cursor-pointer text-xl md:text-2xl relative z-10 flex-1 rounded-tl-xl rounded-bl-none rounded-br-none py-4 pt-8 font-normal  transition-all duration-300
+      data-[state=active]:bg-[#EECFCB] 
+      data-[state=active]:text-black
+      data-[state=inactive]:shadow-none
+      data-[state=inactive]:bg-[#FBEDED]
+      data-[state=inactive]:text-gray-400
+      data-[state=active]:shadow-md 
+      data-[state=inactive]:hover:text-gray-700
+      data-[state=inactive]:hover:bg-[#F8EAE7]
+      `}
   >
     Permanent
   </TabsTrigger>
   
   <TabsTrigger
     value="lashes"
-    className="text-xl md:text-2xl relative z-10 flex-1 rounded-t-xl py-4 font-semibold transition-all duration-300
-      data-[state=active]:bg-white data-[state=active]:shadow-lg 
-      data-[state=active]:translate-y-[-4px] data-[state=active]:text-black
-      data-[state=inactive]:bg-[#FBEDED] data-[state=inactive]:text-gray-600"
+    className={`${lora.className} cursor-pointer text-xl md:text-2xl relative z-10 flex-1 rounded-tl-xl rounded-bl-none rounded-br-none py-4 pt-8 font-normal  transition-all duration-300
+    data-[state=active]:bg-[#EECFCB] 
+    data-[state=active]:text-black
+    data-[state=inactive]:shadow-none
+    data-[state=inactive]:bg-[#FBEDED]
+    data-[state=inactive]:text-gray-400
+    data-[state=active]:shadow-md 
+    data-[state=inactive]:hover:text-gray-700
+    data-[state=inactive]:hover:bg-[#F8EAE7]
+    `}
   >
     Lashes
   </TabsTrigger>
@@ -192,9 +214,9 @@ export default function CustomTabs() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="p-6 space-y-6  bg-[#F3DDDA]"
+                className="p-6 space-y-6  bg-[#EECFCB]"
               >
-                <h2 className="text-3xl font-bold text-center">Brows</h2>
+                <h2 className={`${playfair.className} font-playfair text-3xl font- text-center pt-6 pb-6`}>Brows</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {permanentBrows.map((item, index) => (
                     <motion.div
@@ -203,14 +225,14 @@ export default function CustomTabs() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     >
-                      <Card className="bg-red-50 shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden flex flex-col">
-                        <img
+                      <Card className="bg-[#F8EAE7]  transition-shadow duration-300 rounded-[0px_30px_0px_30px] overflow-hidden flex flex-col">
+                        {/* <img
                           src={item.image}
                           alt={item.title}
                           className="w-full h-60 object-cover rounded-t-2xl"
-                        />
+                        /> */}
                         <CardHeader>
-                          <CardTitle className="text-red-500 text-xl">{item.title}</CardTitle>
+                          <CardTitle className="text-[#F9A1C5]-500 text-xl">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
@@ -220,7 +242,7 @@ export default function CustomTabs() {
                             className="
     bg-[#F4E352] text-black rounded-full w-full h-10 text-lg font-semibold mt-4
     transition-transform transition-colors duration-300 ease-in-out
-    hover:bg-[#e5d849] hover:scale-105 active:scale-95
+    hover:bg-[#e5d849] hover:scale-105 active:scale-95 shadow-md cursor-pointer
   "
                           >
                             Order Service
@@ -232,7 +254,7 @@ export default function CustomTabs() {
                   ))}
                 </div>
 
-                <h2 className="text-3xl font-bold text-center">Lips</h2>
+                <h2 className={`${playfair.className} font-playfair text-3xl font- text-center pt-6 pb-6`}>Lips</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {permanentLips.map((item, index) => (
                     <motion.div
@@ -241,14 +263,14 @@ export default function CustomTabs() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     >
-                      <Card className="bg-red-50 shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden flex flex-col">
-                        <img
+                      <Card className="bg-[#F8EAE7] shadow-md hover:shadow-xl duration-300 rounded-[0px_30px_0px_30px] overflow-hidden flex flex-col">
+                        {/* <img
                           src={item.image}
                           alt={item.title}
                           className="w-full h-60 object-cover rounded-t-2xl"
-                        />
+                        /> */}
                         <CardHeader>
-                          <CardTitle className="text-red-500 text-xl">{item.title}</CardTitle>
+                          <CardTitle className="text-black-500 text-xl">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
@@ -258,7 +280,7 @@ export default function CustomTabs() {
                             className="
     bg-[#F4E352] text-black rounded-full w-full h-10 text-lg font-semibold mt-4
     transition-transform transition-colors duration-300 ease-in-out
-    hover:bg-[#e5d849] hover:scale-105 active:scale-95
+    hover:bg-[#e5d849] hover:scale-105 active:scale-95  shadow-md cursor-pointer
   "
                           >
                             Order Service
@@ -269,6 +291,43 @@ export default function CustomTabs() {
                     </motion.div>
                   ))}
                 </div>
+                <h2 className={`${playfair.className} font-playfair text-3xl text-center pt-6 pb-6`}>Lash Line</h2>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {permanentLashLine.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+    >
+      <Card className="bg-[#F8EAE7] shadow-md hover:shadow-xl duration-300 rounded-[0px_30px_0px_30px] overflow-hidden flex flex-col">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-60 object-cover rounded-t-2xl"
+        />
+        <CardHeader>
+          <CardTitle className="text-black-500 text-xl">{item.title}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          <p className="text-base leading-relaxed">{item.description}</p>
+          <p className="font-semibold text-lg mt-2">{item.duration} • {item.price}</p>
+          <Button
+            onClick={() => openModal(item.title)}
+            className="
+              bg-[#F4E352] text-black rounded-full w-full h-10 text-lg font-semibold mt-4
+              transition-transform transition-colors duration-300 ease-in-out
+              hover:bg-[#e5d849] hover:scale-105 active:scale-95 shadow-md cursor-pointer
+            "
+          >
+            Order Service
+          </Button>
+        </CardContent>
+      </Card>
+    </motion.div>
+  ))}
+</div>
+
               </motion.div>
             </TabsContent>
 
@@ -278,10 +337,10 @@ export default function CustomTabs() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="p-6 space-y-6"
+                className="p-6 space-y-6 bg-[#EECFCB]"
               >
-                <h2 className="text-3xl font-bold text-center">Lash Extensions</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <h2 className={`${playfair.className} font-playfair text-3xl font- text-center pt-6 pb-6`}>Lash extensions</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                   {lashesData.map((item, index) => (
                     <motion.div
                       key={index}
@@ -289,14 +348,14 @@ export default function CustomTabs() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     >
-                      <Card className="bg-red-50 shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden flex flex-col">
+                      <Card className="bg-[#F8EAE7] shadow-md hover:shadow-xl transition-shadow duration-300 rounded-[0px_30px_0px_30px] overflow-hidden flex flex-col">
                         <img
                           src={item.image}
                           alt={item.title}
                           className="w-full h-60 object-cover rounded-t-2xl"
                         />
                         <CardHeader>
-                          <CardTitle className="text-red-500 text-xl">{item.title}</CardTitle>
+                          <CardTitle className=" text-xl">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
@@ -306,7 +365,7 @@ export default function CustomTabs() {
                             className="
     bg-[#F4E352] text-black rounded-full w-full h-10 text-lg font-semibold mt-4
     transition-transform transition-colors duration-300 ease-in-out
-    hover:bg-[#e5d849] hover:scale-105 active:scale-95
+    hover:bg-[#e5d849] hover:scale-105 active:scale-95 shadow-md cursor-pointer
   "
                           >
                             Order Service

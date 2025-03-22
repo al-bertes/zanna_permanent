@@ -114,13 +114,13 @@ export default function FAQ() {
   return (
     <motion.div 
       id="faq"
-      className="container mx-auto px-4 md:px-8 max-w-4xl mt-16"
+      className="container mx-auto px-4 md:px-8 max-w-4xl mt-30 mb-20"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h2 
-        className={`${playfair.className} font-playfair text-4xl md:text-5xl text-center text-black mb-6`}
+        className={`${playfair.className} font-playfair text-4xl md:text-5xl text-center text-black mb-10`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -131,7 +131,7 @@ export default function FAQ() {
       <Accordion type="single" collapsible className="w-full">
         {faqData.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-300">
-            <AccordionTrigger className="cursor-pointer text-lg font-semibold text-left py-3">
+            <AccordionTrigger className="cursor-pointer text-[#8E4945] text-lg font-semibold text-left py-3">
               {item.question}
             </AccordionTrigger>
             <AccordionContent className="text-gray-600 text-sm leading-relaxed px-4 pb-3">

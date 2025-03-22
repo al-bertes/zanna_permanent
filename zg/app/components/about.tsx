@@ -2,16 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Playfair_Display, Open_Sans } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function About() {
@@ -40,9 +41,9 @@ export default function About() {
         >
           <div className="w-full md:w-1/2 text-center md:text-left">
             <p
-              className="font-lora text-base md:text-2xl leading-[1.6] md:leading-[1.4] max-w-lg mx-auto md:mx-0"
+              className={`${lora.className} text-base md:text-2xl leading-none md:leading-[1.4] max-w-lg mx-auto md:mx-0`}
             >
-              With over 7 years of experience in the beauty industry, Zanna Gabisova is a licensed and certified professional, an internationally recognized judge, award-winning artist, and dedicated educator. Specializing in advanced lash extensions and permanent makeup for brows, lips, and eyelids, she combines exceptional artistry with precision. Clients benefit not only from her expert hands-on techniques but also from her deep industry knowledge as a passionate instructor. Whether enhancing natural beauty or creating transformative looks, Zanna Gabisova consistently delivers stunning, long-lasting results with the highest standards of safety and professionalism.
+              With over 7 years of experience in the beauty industry, Zhanna Gabisova is a licensed and certified professional, an internationally recognized judge, award-winning artist, and dedicated educator.<br/><br/> Specializing in advanced lash extensions and permanent makeup for brows, lips, and eyelids, she combines exceptional artistry with precision. Clients benefit not only from her expert hands-on techniques but also from her deep industry knowledge as a passionate instructor. <br/><br/>Whether enhancing natural beauty or creating transformative looks, Zhanna Gabisova consistently delivers stunning, long-lasting results with the highest standards of safety and professionalism.
             </p>
           </div>
 

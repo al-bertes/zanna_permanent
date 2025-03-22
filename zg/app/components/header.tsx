@@ -41,7 +41,7 @@ export default function Header() {
               key={section}
               onClick={() => scrollToSection(section.toLowerCase())}
               variant="outline"
-              className="font-lora bg-transparent rounded-full border-black text-black hover:bg-[#710000] hover:text-white cursor-pointer"
+              className="font-lora bg-transparent rounded-full border-black hover:border-none text-black hover:bg-[#A85C65] hover:text-white cursor-pointer leading-none"
             >
               {section}
             </Button>

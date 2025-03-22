@@ -23,13 +23,14 @@ const images = {
     "/img/lips-3.jpg",
   ],
   Lashes: [
-    "/img/lashes-2weeks.jpg",
+    "/img/eyeliner.jpg",
     "/img/lashes-3weeks-foreign.jpg",
     "/img/lashes-3weeks.jpg",
     "/img/lashes-classic.jpg",
     "/img/lashes-hybrid.jpg",
     "/img/lashes-kylie.jpg",
     "/img/lashes-mascara.jpg",
+    "/img/lashes-2weeks.jpg",
     "/img/lashes-removal.jpg",
     "/img/lashes-volume.jpg",
   ],
@@ -39,7 +40,6 @@ const images = {
     "/img/brows-3.jpg",
   ],
   Eyeliner: [
-    "/img/eyeliner.jpg",
     "/img/eyeliner-1.jpg",
     "/img/eyeliner-2.jpg",
     "/img/eyeliner-3.jpg",
@@ -67,22 +67,35 @@ export default function ExploreSection() {
       viewport={{ once: false }}
     >
       <div className="container mx-auto px-0 md:px-6 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false }}
-          className="flex flex-col md:flex-row items-center md:items-baseline gap-6 md:gap-20"
-        >
-          <h2 className={`${playfair.className} font-playfair text-4xl md:text-5xl text-black mt-2 mb-4 leading-tight`}>
-            Explore
-          </h2>
-        </motion.div>
+      <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+  viewport={{ once: false }}
+  className="flex flex-col md:flex-row justify-start items-center gap-6 md:gap-20"
+>
+  <h2 className={`${playfair.className} text-4xl md:text-5xl text-black leading-tight`}>
+    Explore
+  </h2>
+
+  <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+    {tabs.map((tab) => (
+      <button
+        key={tab}
+        onClick={() => handleTabChange(tab)}
+        className={`cursor-pointer px-3 py-1 md:px-5 md:py-2 rounded-full text-sm md:text-base font-medium transition-colors duration-200 
+          ${activeTab === tab ? "bg-[#A85C65] text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+      >
+        {tab}
+      </button>
+    ))}
+  </div>
+</motion.div>
 
         <AnimatePresence mode="wait">
           <motion.h3
             key={activeTab}
-            className="font-lora text-center text-2xl text-black mt-6 mb-4 leading-tight"
+            className="font-lora text-center text-3xl text-black mt-20 mb-10 leading-tight cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -128,24 +141,6 @@ export default function ExploreSection() {
             </Swiper>
           </motion.div>
         </AnimatePresence>
-
-        <div className="flex justify-center gap-4 mt-6">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTabChange(tab)}
-                className={`px-3 py-1 md:px-5 md:py-2 rounded-full text-sm md:text-base font-medium transition-colors duration-200 ${activeTab === tab
-                    ? "bg-red-500 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-        </div>
       </div>
     </motion.section>
   );

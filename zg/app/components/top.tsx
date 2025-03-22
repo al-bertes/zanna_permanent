@@ -4,12 +4,17 @@ import { useState } from "react";
 import { Button } from "./button";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 import Image from "next/image";
 // Подключение шрифта Playfair Display
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700",],
 });
 
 export default function Top() {
@@ -62,7 +67,7 @@ export default function Top() {
 
 
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <p className="font-lora text-lg md:text-4xl max-w-lg leading-[1.8] md:leading-[1.5] mx-auto md:mx-0">
+            <p className={`${lora.className} text-lg md:text-4xl max-w-lg leading-[1.8] md:leading-[1.5] mx-auto md:mx-0`}>
             Experience a stunning transformation with our expert permanent makeup and lash extension services. Say goodbye to daily makeup routines and enjoy long-lasting, natural beauty. Wake up refreshed and ready to take on the world—because beauty should be effortless!</p>
 
             <Button
