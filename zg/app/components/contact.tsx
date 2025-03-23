@@ -4,12 +4,17 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
 import ContactForm from "./ContactForm";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 
 // Подключение шрифта Playfair Display
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const lora = Lora ({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function Contact() {
@@ -33,7 +38,7 @@ export default function Contact() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false }}
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className={`${lora.className} container mx-auto px-4 md:px-6 max-w-6xl`}>
         
         {/* Заголовок */}
         <motion.div
@@ -43,7 +48,7 @@ export default function Contact() {
           viewport={{ once: false }}
           className="mb-12 text-center md:text-center"
         >
-          <h2 className={`${playfair.className} text-xl md:text-5xl lg:text-5xl  text-black`}>
+          <h2 className={`${playfair.className} text-4xl md:text-5xl text-black leading-tight`}>
             Contact Us
           </h2>
           <p className="text-gray-600 mt-2 text-lg md:text-xl">
@@ -74,7 +79,7 @@ export default function Contact() {
 
             {/* Контактная информация */}
             <div className="bg-[#F3DDDA] p-6 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold text-black mb-4">Contact Information</h3>
+              <h3 className={`${lora.className} text-2xl font-semibold text-black mb-4`}>Contact Information</h3>
               
               <div className="space-y-4">
                 {/* Адрес */}

@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false }} 
     >
-      <div className="container mx-auto px-0 md:px-6 max-w-6xl">
+      <div className={`${lora.className} container mx-auto px-0 md:px-6 max-w-6xl`}>
         
         <motion.h2 
           className={`${playfair.className} font-playfair text-4xl md:text-5xl text-center md:text-left text-black mt-2 leading-tight`}

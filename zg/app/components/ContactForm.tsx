@@ -1,6 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { Playfair_Display } from "next/font/google";
+
+// Подключение шрифта Playfair Display
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 interface ContactFormProps {
   serviceType?: string;
@@ -57,8 +64,8 @@ export default function ContactForm({ serviceType = "", onSuccess }: ContactForm
 
   return (
     <form className="space-y-6 p-6 bg-[#F3DDDA] rounded-2xl shadow-lg max-w-lg mx-auto" onSubmit={handleSubmit}>
-      <h2 className="text-3xl font-bold text-center text-gray-900">Get in Touch</h2>
-      <p className="text-gray-500 text-center text-sm">
+  <h2 className={`${playfair.className} text-3xl md:text-4xl text-black text-center leading-tight`}>Get in touch</h2>
+  <p className="text-gray-500 text-center text-sm">
         Fill in your details and we’ll get back to you shortly.
       </p>
 

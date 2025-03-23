@@ -153,7 +153,7 @@ export default function CustomTabs() {
       >
         Our Services
       </motion.h2>
-      <div className="flex justify-center items-center min-h-screen p-0 mt-10">
+      <div className={`${lora.className} flex justify-center items-center min-h-screen p-0 mt-10`}>
 
 
         <motion.div

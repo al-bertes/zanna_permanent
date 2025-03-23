@@ -124,6 +124,39 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #c46f78;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #c46f78 !important; 
+  opacity: 1 !important;  
+  filter: none !important; 
+  transition: color 0.3s ease;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: inherit;
+}
+
+/* Цвет кружочков Swiper */
+.swiper-pagination-bullet {
+  background: #A85C65 !important;
+  opacity: 0.4 !important;
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Активный кружочек */
+.swiper-pagination-bullet-active {
+  background: #A85C65 !important;
+  opacity: 1 !important;
 }

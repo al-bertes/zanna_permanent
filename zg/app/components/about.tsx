@@ -41,7 +41,7 @@ export default function About() {
         >
           <div className="w-full md:w-1/2 text-center md:text-left">
             <p
-              className={`${lora.className} text-base md:text-2xl leading-none md:leading-[1.4] max-w-lg mx-auto md:mx-0`}
+              className={`${lora.className} text-base md:text-2xl md:leading-[1.4] max-w-lg mx-auto md:mx-0`}
             >
               With over 7 years of experience in the beauty industry, Zhanna Gabisova is a licensed and certified professional, an internationally recognized judge, award-winning artist, and dedicated educator.<br/><br/> Specializing in advanced lash extensions and permanent makeup for brows, lips, and eyelids, she combines exceptional artistry with precision. Clients benefit not only from her expert hands-on techniques but also from her deep industry knowledge as a passionate instructor. <br/><br/>Whether enhancing natural beauty or creating transformative looks, Zhanna Gabisova consistently delivers stunning, long-lasting results with the highest standards of safety and professionalism.
             </p>

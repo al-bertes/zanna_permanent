@@ -8,12 +8,17 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 
 // Подключение шрифта Playfair Display
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const images = {
@@ -78,7 +83,7 @@ export default function ExploreSection() {
     Explore
   </h2>
 
-  <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+  <div className={`${lora.className} flex flex-wrap justify-center gap-2 md:gap-4`}>
     {tabs.map((tab) => (
       <button
         key={tab}

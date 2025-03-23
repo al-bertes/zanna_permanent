@@ -2,10 +2,15 @@
 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 
 // Подключение шрифта
 const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+const lora = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
@@ -128,7 +133,7 @@ export default function FAQ() {
         Frequently Asked Questions
       </motion.h2>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className={`${lora.className} w-full`}>
         {faqData.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-300">
             <AccordionTrigger className="cursor-pointer text-[#8E4945] text-lg font-semibold text-left py-3">
