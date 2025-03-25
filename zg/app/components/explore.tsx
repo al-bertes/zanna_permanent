@@ -100,7 +100,7 @@ export default function ExploreSection() {
         <AnimatePresence mode="wait">
           <motion.h3
             key={activeTab}
-            className="font-lora text-center text-3xl text-black mt-20 mb-10 leading-tight cursor-pointer"
+            className="font-lora text-center text-3xl text-black mt-10 mb-10 leading-tight cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

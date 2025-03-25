@@ -135,7 +135,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #c46f78 !important; 
+  color: #FFE0E0 !important; 
   opacity: 1 !important;  
   filter: none !important; 
   transition: color 0.3s ease;
@@ -148,7 +148,6 @@
 
 /* Цвет кружочков Swiper */
 .swiper-pagination-bullet {
-  background: #A85C65 !important;
   opacity: 0.4 !important;
   width: 10px;
   height: 10px;
@@ -157,6 +156,6 @@
 
 /* Активный кружочек */
 .swiper-pagination-bullet-active {
-  background: #A85C65 !important;
+  background: #FBEDED !important;
   opacity: 1 !important;
 }

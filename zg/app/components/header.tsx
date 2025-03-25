@@ -20,15 +20,15 @@ export default function Header() {
   };
 
   return (
-    <header className="py-4 fixed top-0 left-0 w-full z-50 bg-[#F1E6E6] drop-shadow-md">
-      <div className="container mx-auto px-10 md:px-6 flex justify-between items-center max-w-6xl">
+    <header className="py-2 fixed top-0 left-0 w-full z-50 bg-[#F1E6E6] drop-shadow-md">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center max-w-6xl">
       <div>
   <Image
     src="/img/logo.svg"
     alt="Logo"
-    width={150}
-    height={60}
-    className="h-12 md:h-16 w-auto cursor-pointer"
+    width={200}
+    height={90}
+    className="h-17 md:h-20 w-auto cursor-pointer"
     onClick={() => scrollToSection("home")}
     priority
   />
@@ -79,7 +79,7 @@ export default function Header() {
                   key={section}
                   onClick={() => scrollToSection(section.toLowerCase())}
                   variant="outline"
-                  className="font-lora !w-auto !max-w-max px-6 bg-transparent rounded-full border-black text-black hover:bg-[#710000] hover:text-white"
+                  className="font-lora !w-auto !max-w-max px-6 bg-transparent rounded-full border-black text-black hover:bg-[#710000] hover:text-white leading-none"
                 >
                   {section}
                 </Button>

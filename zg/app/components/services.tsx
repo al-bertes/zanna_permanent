@@ -29,14 +29,14 @@ const permanentBrows = [
     image: "/img/brows-1.jpg"
   },
   {
-    title: "5-6 Week Brow Touch-Up",
+    title: "5-6 Weeks Brow Touch-Up",
     description: "Maintain your eyebrow shape and color with this recommended follow-up session.",
     duration: "1 hour",
     price: "$100",
     image: "/img/brows-2.jpg"
   },
   {
-    title: "2-6 Week Brow Touch-Up",
+    title: "2-6 Months Brow Touch-Up",
     description: "Perfect for an initial touch-up to ensure optimal shape and lasting color.",
     duration: "2 hours",
     price: "$400",
@@ -46,14 +46,14 @@ const permanentBrows = [
 
 const permanentLips = [
   {
-    title: "Lip Blush",
+    title: "Lips Blush",
     description: "Enhance your lips with natural-looking color, shape definition, and correction of minor imperfections.",
     duration: "3 hours 20 minutes",
     price: "$450",
     image: "/img/lips-1.jpg"
   },
   {
-    title: "6-8 Week Lip Touch-Up",
+    title: "4-6 Weeks Lips Touch-Up",
     description: "Maintain your lip color vibrancy and shape with a professional touch-up.",
     duration: "2 hours 30 minutes",
     price: "$200",
@@ -106,18 +106,30 @@ const lashesData = [
     image: "/img/lashes-4weeks.jpg"
   },
   {
-    title: "Lash Extension Removal",
-    description: "Gentle removal of lash extensions applied by our studio within the last 14 days (Mega Volume excluded).",
-    duration: "15 minutes",
-    price: "$30",
-    image: "/img/lashes-removal.jpg"
-  },
-  {
     title: "Lash Fill - Foreign Set (within 3 weeks)",
     description: "Professional fill-in of lash extensions from other artists, provided at least 50% of lashes remain intact (Mega Volume excluded). For optimal results, we recommend a new full set.",
     duration: "1 hour 20 minutes",
     price: "$130",
     image: "/img/lashes-3weeks-foreign.jpg"
+  },
+  {
+    title: "Lash Refill - After 2 Weeks",
+    description: "Book your refill within 2 weeks and receive 50% off the original full set price. A perfect way to keep your lashes full and fresh.",
+    duration: "1 hour 15 minutes",
+    price: "50% off the original full set price",
+  },
+  {
+    title: "Lash Refill - After 3 Weeks",
+    description: "Book your refill after 3 weeks and enjoy 25% off the original full set price. Maintain volume and style with a quick touch-up.",
+    duration: "1 hour 30 minutes",
+    price: "25% off the original full set price",
+  },
+  {
+    title: "Lash Extension Removal",
+    description: "Gentle removal of lash extensions applied by our studio within the last 14 days (Mega Volume excluded).",
+    duration: "15 minutes",
+    price: "$30",
+    image: "/img/lashes-removal.jpg"
   },
 ];
 
@@ -236,7 +248,7 @@ export default function CustomTabs() {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
-                          <p className="font-semibold text-lg mt-2">{item.duration} • {item.price}</p>
+                          <p className="font-semibold text-lg mt-2">{item.duration}<br/> {item.price}</p>
                           <Button
                             onClick={() => openModal(item.title)}
                             className="
@@ -274,7 +286,7 @@ export default function CustomTabs() {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
-                          <p className="font-semibold text-lg mt-2">{item.duration} • {item.price}</p>
+                          <p className="font-semibold text-lg mt-2">{item.duration} <br/> {item.price}</p>
                           <Button
                             onClick={() => openModal(item.title)}
                             className="
@@ -311,7 +323,7 @@ export default function CustomTabs() {
         </CardHeader>
         <CardContent className="space-y-2">
           <p className="text-base leading-relaxed">{item.description}</p>
-          <p className="font-semibold text-lg mt-2">{item.duration} • {item.price}</p>
+          <p className="font-semibold text-lg mt-2">{item.duration} <br/>{item.price}</p>
           <Button
             onClick={() => openModal(item.title)}
             className="
@@ -349,17 +361,19 @@ export default function CustomTabs() {
                       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                     >
                       <Card className="bg-[#F8EAE7] shadow-md hover:shadow-xl transition-shadow duration-300 rounded-[0px_30px_0px_30px] overflow-hidden flex flex-col">
+                      {item.image && (
                         <img
                           src={item.image}
                           alt={item.title}
                           className="w-full h-60 object-cover rounded-t-2xl"
                         />
+                      )}
                         <CardHeader>
                           <CardTitle className=" text-xl">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>
-                          <p className="font-semibold text-lg mt-2">{item.duration} • {item.price}</p>
+                          <p className="font-semibold text-lg mt-2">{item.duration} <br/> {item.price}</p>
                           <Button
                             onClick={() => openModal(item.title)}
                             className="

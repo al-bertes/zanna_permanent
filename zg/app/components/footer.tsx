@@ -51,7 +51,7 @@ export default function Footer() {
     alt="Logo"
     width={160}
     height={60}
-    className="h-10 w-auto mb-2"
+    className="h-15 w-auto mb-2"
     priority
   />
   <p className="text-gray-600 text-sm">
@@ -60,7 +60,7 @@ export default function Footer() {
 </div>
 
           {/* Быстрые ссылки */}
-          <nav className="flex justify-center md:justify-start gap-4 text-gray-700">
+          <nav className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-700">
             {navigationLinks.map(({ name, id }) => (
               <a
                 key={id}

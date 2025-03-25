@@ -71,7 +71,7 @@ export default function Contact() {
             <div className="rounded-2xl shadow-lg overflow-hidden">
               <iframe
                 className="w-full h-[300px] md:h-[400px]"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93233.91709424307!2d-93.3294912!3d44.977753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b333e9e3081601%3A0xe9b42d5b01725c02!2sMinneapolis%2C%20MN!5e0!3m2!1sen!2sus!4v1675805084537!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.9015449493377!2d-93.44793552392369!3d44.965993871070225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b34ac1c3f7698b%3A0x4a62988b9e431403!2s12993%20Ridgedale%20Dr%20Suite%20123%2C%20Minnetonka%2C%20MN%2055305!5e0!3m2!1sen!2sus!4v1742851171391!5m2!1sen!2sus"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -86,7 +86,7 @@ export default function Contact() {
                 <div className="flex items-center gap-3">
                   <MapPin className="text-black-600 w-6 h-6" />
                   <p className="text-gray-700">
-                    <strong>Address:</strong> 123 Main Street, Minneapolis, MN
+                    <strong>Address:</strong> 12993 Ridgedale Dr #123 Minnetonka MN 
                   </p>
                 </div>
 
@@ -95,7 +95,7 @@ export default function Contact() {
                   <Phone className="text-black-600 w-6 h-6" />
                   <p className="text-gray-700">
                     <strong>Phone:</strong> 
-                    <a href="tel:+1234567890" className="text-blue-600 hover:underline ml-1">+1 (234) 567-890</a>
+                    <a href="tel:+12242943516" className="text-blue-600 hover:underline ml-1">+1 (224) 294 35 16</a>
                   </p>
                 </div>
 
