@@ -11,6 +11,13 @@ interface ModalProps {
   serviceType?: string;
 }
 
+import { Lora } from "next/font/google";
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -69,7 +76,7 @@ export default function Modal({ isOpen, onClose, serviceType }: ModalProps) {
                 transition={{ duration: 0.5 }}
                 className="fixed inset-0 flex items-center justify-center z-50"
               >
-                <div className="bg-green-600 text-white px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
+                <div className={`${lora.className} bg-green-600 text-white px-6 py-4 rounded-xl shadow-lg text-lg font-semibold`}>
                   ✅ Your message has been sent!
                 </div>
               </motion.div>

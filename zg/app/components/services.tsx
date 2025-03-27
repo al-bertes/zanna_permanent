@@ -203,7 +203,7 @@ export default function CustomTabs() {
   
   <TabsTrigger
     value="lashes"
-    className={`${lora.className} cursor-pointer text-xl md:text-2xl relative z-10 flex-1 rounded-tl-xl rounded-bl-none rounded-br-none py-4 pt-8 font-normal  transition-all duration-300
+    className={`${lora.className} cursor-pointer text-xl md:text-2xl relative z-10 flex-1 rounded-tl-xl rounded-bl-none rounded-br-none py-4 pt-8 transition-all duration-300
     data-[state=active]:bg-[#EECFCB] 
     data-[state=active]:text-black
     data-[state=inactive]:shadow-none
@@ -226,7 +226,7 @@ export default function CustomTabs() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="p-6 space-y-6  bg-[#EECFCB]"
+                className="p-3 md:p-6 space-y-6  bg-[#EECFCB]"
               >
                 <h2 className={`${playfair.className} font-playfair text-3xl font- text-center pt-6 pb-6`}>Brows</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -349,7 +349,7 @@ export default function CustomTabs() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="p-6 space-y-6 bg-[#EECFCB]"
+                className="p-3 md:p-6 space-y-6 bg-[#EECFCB]"
               >
                 <h2 className={`${playfair.className} font-playfair text-3xl font- text-center pt-6 pb-6`}>Lash extensions</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -369,7 +369,7 @@ export default function CustomTabs() {
                         />
                       )}
                         <CardHeader>
-                          <CardTitle className=" text-xl">{item.title}</CardTitle>
+                          <CardTitle className="text-xl">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <p className="text-base leading-relaxed">{item.description}</p>

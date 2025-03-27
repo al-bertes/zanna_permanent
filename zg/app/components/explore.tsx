@@ -97,7 +97,7 @@ export default function ExploreSection() {
   </div>
 </motion.div>
 
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           <motion.h3
             key={activeTab}
             className="font-lora text-center text-3xl text-black mt-10 mb-10 leading-tight cursor-pointer"
@@ -108,7 +108,7 @@ export default function ExploreSection() {
           >
             {activeTab}
           </motion.h3>
-        </AnimatePresence>
+        </AnimatePresence> */}
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -130,7 +130,7 @@ export default function ExploreSection() {
                 640: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              className="w-full"
+              className="w-full mt-10 md:mt-20"
             >
               {images[activeTab].map((imgSrc, index) => (
                 <SwiperSlide key={index}>

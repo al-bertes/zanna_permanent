@@ -35,7 +35,7 @@ export default function Footer() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         viewport={{ once: false }}
       />
-      <div className={`${lora.className} container mx-auto px-4 md:px-6 max-w-6xl`}>
+      <div className={`${lora.className} container mx-auto px-0 md:px-6 max-w-6xl`}>
         {/* Верхняя часть футера */}
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6"

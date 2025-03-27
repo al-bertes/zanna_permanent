@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
             viewport={{ once: false }}
             className="bg-[#E9C1BE] shadow-xs text-black p-6 pb-20 rounded-3xl h-full w-full flex flex-1 flex-col md:min-h-[280px]"
           >
-            <h3 className=" text-lg sm:text-xl md:text-4xl mb-6 leading-none">
+            <h3 className="text-2xl sm:text-xl md:text-4xl mb-6 leading-none">
               Expert Artists
             </h3>
             <p className={`${lora.className} text-base sm:text-lg md:text-2xl leading-[1.8] md:leading-[1.5]`}>
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
             viewport={{ once: false }}
             className="bg-[#E9C1BE] text-black p-6 pb-20 rounded-3xl h-full w-full flex flex-1 flex-col md:mt-11 md:min-h-[0px]"
           >
-            <h3 className="font-lora text-lg sm:text-xl md:text-4xl mb-6 leading-none">
+            <h3 className="text-2xl sm:text-xl md:text-4xl mb-6 leading-none">
             Long-Lasting Results
             </h3>
             <p className={`${lora.className} text-base sm:text-lg md:text-2xl leading-[1.8] md:leading-[1.5]`}>
@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
             viewport={{ once: false }}
             className="bg-[#E9C1BE] text-black p-6 pb-20 rounded-3xl h-full w-full flex flex-1 flex-col md:mt-20 md:min-h-[280px]"
           >
-            <h3 className="font-lora text-lg sm:text-xl md:text-4xl mb-6 leading-none">
+            <h3 className="text-2xl sm:text-xl md:text-4xl mb-6 leading-none">
             Personalized Approach
             </h3>
             <p className={`${lora.className} text-base sm:text-lg md:text-2xl leading-[1.8] md:leading-[1.5]`}>

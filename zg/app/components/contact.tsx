@@ -38,7 +38,7 @@ export default function Contact() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false }}
     >
-      <div className={`${lora.className} container mx-auto px-4 md:px-6 max-w-6xl`}>
+      <div className={`${lora.className} container mx-auto px-0 md:px-6 max-w-6xl`}>
         
         {/* Заголовок */}
         <motion.div
@@ -78,7 +78,7 @@ export default function Contact() {
             </div>
 
             {/* Контактная информация */}
-            <div className="bg-[#F3DDDA] p-6 rounded-2xl shadow-md">
+            <div className="bg-[#F3DDDA] p-4 md:p-6 rounded-2xl shadow-md">
               <h3 className={`${lora.className} text-2xl font-semibold text-black mb-4`}>Contact Information</h3>
               
               <div className="space-y-4">

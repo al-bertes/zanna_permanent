@@ -10,8 +10,10 @@ import Image from "next/image";
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId); 
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -76,13 +78,20 @@ export default function Header() {
             <nav className="flex flex-col items-left gap-4 pl-6 py-6">
               {["About", "Explore", "Services", "Contact", "FAQ"].map((section) => (
                 <Button
-                  key={section}
-                  onClick={() => scrollToSection(section.toLowerCase())}
-                  variant="outline"
-                  className="font-lora !w-auto !max-w-max px-6 bg-transparent rounded-full border-black text-black hover:bg-[#710000] hover:text-white leading-none"
-                >
-                  {section}
-                </Button>
+                key={section}
+                onClick={() => scrollToSection(section.toLowerCase())}
+                variant="outline"
+                className={`transition-none font-lora !w-auto !max-w-max px-6 rounded-full border-black leading-none
+                  ${activeSection === section.toLowerCase()
+                    ? "bg-[#A85C65] text-white border-[#A85C65]"
+                    : "bg-transparent text-black hover:bg-[#710000] hover:text-white"}
+                `}
+                
+              >
+                {section}
+              </Button>
+              
+              
               ))}
               <Button
                 onClick={() => {
