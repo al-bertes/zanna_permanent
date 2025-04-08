@@ -39,7 +39,14 @@ const permanentBrows = [
     title: "2-6 Months Brow Touch-Up",
     description: "Perfect for an initial touch-up to ensure optimal shape and lasting color.",
     duration: "2 hours",
-    price: "$400",
+    price: "$200",
+    image: "/img/brows-3.jpg"
+  },
+  {
+    title: "12 Months Brow Touch-Up",
+    description: "The listed price applies only to touch-ups of my own work. If the original procedure was done by another specialist, the touch-up price is $250.",
+    duration: "2 hours",
+    price: "$250",
     image: "/img/brows-3.jpg"
   },
 ];
@@ -140,7 +147,14 @@ const permanentLashLine = [
     duration: "1 hour 40 minutes",
     price: "$300",
     image: "/img/eyeliner-2.jpg" 
-  }
+  },
+  {
+    title: "4-6 weeks Lash-line Touch-Up",
+    description: "The listed price applies only to touch-ups of my own work. If the original procedure was done by another specialist, the touch-up price is $250",
+    // duration: "2 hours",
+    price: "$100",
+    image: "/img/eyeliner-1.jpg"
+  },
 ];
 
 
