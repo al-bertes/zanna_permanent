@@ -104,7 +104,7 @@ export default function Contact() {
                   <Mail className="text-black-600 w-6 h-6" />
                   <p className="text-gray-700">
                     <strong>Email:</strong> 
-                    <a href="mailto:info@example.com" className="text-blue-600 hover:underline ml-1">info@example.com</a>
+                    <a href="beautyzonebyzhanna@gmail.com" className="text-blue-600 hover:underline ml-1">beautyzonebyzhanna@gmail.com</a>
                   </p>
                 </div>
 

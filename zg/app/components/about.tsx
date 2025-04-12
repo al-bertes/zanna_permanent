@@ -56,7 +56,7 @@ export default function About() {
           >
             <div className="w-full max-w-xs sm:max-w-md md:max-w-full h-auto rounded-2xl overflow-hidden">
               <Image
-                src="/img/zhanna-permanent.png"
+                src="/img/photo.jpg"
                 alt="Permanent Makeup & Lash Extensions professional"
                 width={600}
                 height={800}
