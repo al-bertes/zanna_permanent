@@ -56,7 +56,7 @@ export default function Top() {
 <div className="w-full md:w-1/2 flex justify-center">
   <div className="relative w-full max-w-xs sm:max-w-md md:max-w-lg aspect-[3/4] rounded-2xl overflow-hidden">
     <Image
-      src="/img/main.png"
+      src="/img/main.webp"
       alt="Permanent Makeup & Lash Extensions"
       fill
       className="object-cover"
