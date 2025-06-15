@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {  Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import Image from "next/image";
 import { Lora } from "next/font/google";
 
@@ -22,7 +22,7 @@ const navigationLinks = [
 export default function Footer() {
   return (
     <motion.footer
-      className="md:py-5 "
+      className="pb-6 md:py-5 "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -46,18 +46,18 @@ export default function Footer() {
         >
           {/* Логотип и слоган */}
           <div className="flex flex-col items-center md:items-start">
-  <Image
-    src="/img/logo.svg"
-    alt="Logo"
-    width={160}
-    height={60}
-    className="h-15 w-auto mb-2"
-    priority
-  />
-  <p className="text-gray-600 text-sm">
-    Enhancing Your Beauty, One Stroke at a Time.
-  </p>
-</div>
+            <Image
+              src="/img/logo.svg"
+              alt="Logo"
+              width={160}
+              height={60}
+              className="h-15 w-auto mb-2"
+              priority
+            />
+            <p className="text-gray-600 text-sm">
+              Enhancing Your Beauty, One Stroke at a Time.
+            </p>
+          </div>
 
           {/* Быстрые ссылки */}
           <nav className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-700">
@@ -88,15 +88,27 @@ export default function Footer() {
         {/* Линия-разделитель */}
 
         {/* Копирайт */}
-        <motion.p
-          className="text-center text-sm text-gray-600 pt-9"
+        <motion.div
+          className="text-center text-sm text-gray-600 pt-9 flex flex-col items-center gap-1 mb-1"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
           viewport={{ once: false }}
         >
-          © 2025 Beauty Glam. All rights reserved.
-        </motion.p>
+          <p>© 2025 Beauty Glam. All rights reserved.</p>
+          <p>
+            Website by{" "}
+            <a
+              href="https://dev-mosaic.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-black transition"
+            >
+              Dev Mosaic
+            </a>
+          </p>
+        </motion.div>
+
       </div>
     </motion.footer>
   );
